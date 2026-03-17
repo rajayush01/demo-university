@@ -3,7 +3,7 @@ import { BookOpen, Users, Globe, Award, TrendingUp, Target } from 'lucide-react'
 
 const AboutPage: React.FC = () => {
   return (
-    <div className="bg-white mt-10 md:mt-36">
+    <div className="bg-white ">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-[#1e3a8a] to-[#1e3a8a]/80 text-white py-24 px-6">
         <div className="max-w-7xl mx-auto">

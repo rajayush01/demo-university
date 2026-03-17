@@ -101,7 +101,7 @@ const AdmissionForm = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8  mt-10 md:mt-36">
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="bg-gradient-to-r from-[#1e3a8a] to-[#B8860B] rounded-t-lg shadow-sm overflow-hidden">

@@ -4,7 +4,7 @@ import img1 from "../../assets/bhoj9.jpg";
 import img2 from "../../assets/logo_bhoj.png";
 import img3 from "../../assets/bhoj11.jpeg";
 import img4 from "../../assets/bhoj12.jpeg";
-import { ArrowRight, MapPin, BookOpen, Award, TrendingUp } from 'lucide-react';
+import { ArrowRight, MapPin, BookOpen, Award, TrendingUp, Target, Users, Globe } from 'lucide-react';
 
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:wght@300;400;600&display=swap');
@@ -81,6 +81,15 @@ const styles = `
   }
   .mission-icon-wrap { transition: background 0.3s ease, color 0.3s ease; }
 
+  /* highlight card */
+  .highlight-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .highlight-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(30,58,138,0.1);
+  }
+
   /* CTA button */
   .cta-pill {
     transition: all 0.35s cubic-bezier(0.22,1,0.36,1);
@@ -153,6 +162,7 @@ const About: React.FC = () => {
   const s4 = useReveal(0.15);
   const s5 = useReveal(0.15);
   const s6 = useReveal(0.15);
+  const s7 = useReveal(0.15);
 
   return (
     <>
@@ -189,14 +199,25 @@ const About: React.FC = () => {
                   Est. October 1992
                 </span>
               </div>
-              <h2 className="baskerville text-[clamp(2.8rem,6vw,5rem)] font-bold text-[#0f2460] leading-[1.04] mb-8">
-                Welcome to<br />
-                <span className="gold-shimmer">Government</span><br />
-                <span className="italic font-normal text-[#0f2460]">Model College</span>
+              <h2 className="baskerville text-[clamp(2.8rem,3vw,5rem)] font-bold text-[#0f2460] leading-[1.04] mb-6">
+                <span className="text-[clamp(1.4rem,3vw,2.2rem)] font-normal">Welcome to</span><br />
+                <span className="gold-shimmer">Madhya Pradesh</span><br />
+                <span className="italic font-normal text-[#0f2460]">Bhoj (Open) University</span>
               </h2>
-              <p className="text-gray-500 font-light text-base leading-relaxed max-w-md">
-                A beacon of inclusive education and transformative learning, shaping futures across Madhya Pradesh since 1992.
+              <p className="text-gray-500 font-light text-base leading-relaxed max-w-md mb-7">
+                Inaugurated by President Dr. Shankar Dayal Sharma on October 19, 1992 — a premier UGC-recognized State Open University committed to transforming lives through accessible education.
               </p>
+              {/* Recognition badges */}
+              <div className="flex flex-wrap gap-3">
+                <div className="bg-[#f4f8ff] border border-[#dbe8ff] px-4 py-2.5 rounded-lg">
+                  <p className="text-[9px] text-gray-400 uppercase tracking-widest mb-0.5">Recognized by</p>
+                  <p className="font-bold text-[#1e3a8a] text-xs">UGC · DEB · AICTE</p>
+                </div>
+                <div className="bg-[#fdf8ee] border border-[#f0c040]/40 px-4 py-2.5 rounded-lg">
+                  <p className="text-[9px] text-gray-400 uppercase tracking-widest mb-0.5">Accredited by</p>
+                  <p className="font-bold text-[#B8860B] text-xs">NCTE · RCI · AIU</p>
+                </div>
+              </div>
             </div>
 
             {/* Right: campus image card floated over the diagonal */}
@@ -289,24 +310,27 @@ const About: React.FC = () => {
                   <span className="flex-1 h-px bg-gradient-to-r from-[#dbe8ff] to-transparent" />
                 </div>
                 <h3 className="baskerville text-4xl font-bold text-[#0f2460] leading-tight mb-6">
-                  A History Rooted<br />
+                  A Legacy Rooted<br />
                   <em className="italic font-normal text-[#B8860B]">in Purpose</em>
                 </h3>
-                <p className="text-gray-600 font-light leading-relaxed mb-5">
-                  Madhya Pradesh Government Model College (Open) University was inaugurated by President Dr. Shankar Dayal Sharma on{' '}
-                  <span className="text-[#1e3a8a] font-semibold">October 19, 1992</span>, under the Madhya Pradesh University Act 1991.
+                <p className="text-gray-600 font-light leading-relaxed mb-4">
+                  Madhya Pradesh Bhoj (Open) University was established on{' '}
+                  <span className="text-[#1e3a8a] font-semibold">October 1, 1992</span> under the Madhya Pradesh University Act 1991, and inaugurated by President Dr. Shankar Dayal Sharma on October 19, 1992.
+                </p>
+                <p className="text-gray-500 font-light leading-relaxed mb-4">
+                  The university's emblem draws inspiration from a verse in Raja Bhoj's{' '}
+                  <em className="baskerville text-[#1e3a8a]">"Saraswati Kanthabharan"</em> — a testament to our deep connection to India's rich intellectual heritage and the pursuit of knowledge.
                 </p>
                 <p className="text-gray-500 font-light leading-relaxed mb-8">
-                  The university's emblem draws inspiration from a verse in Raja Government Model College's{' '}
-                  <em className="baskerville text-[#1e3a8a]">"Saraswati Kanthabharan"</em> — a testament to our rich cultural heritage and commitment to scholarly excellence.
+                  Located in Bhopal, MPBOU extends quality education to underserved regions of Madhya Pradesh through the Open and Distance Learning System, with a network spanning <span className="text-[#1e3a8a] font-semibold">11 regional centers</span> and <span className="text-[#1e3a8a] font-semibold">612 study centers</span> across the state.
                 </p>
 
                 {/* Quote pull */}
                 <div className="big-quote relative pl-6 border-l-4 border-[#B8860B]">
                   <p className="baskerville text-xl italic text-[#1e3a8a] leading-relaxed">
-                    "Utilizing diverse resources for effective knowledge dissemination."
+                    "Embrace, Engage, Enlighten, and Empower."
                   </p>
-                  <p className="text-xs text-gray-400 mt-2 tracking-widest uppercase">University Mission Statement</p>
+                  <p className="text-xs text-gray-400 mt-2 tracking-widest uppercase">University Motto</p>
                 </div>
               </div>
             </div>
@@ -326,7 +350,7 @@ const About: React.FC = () => {
               <div className="text-center mb-14">
                 <span className="text-[10px] uppercase tracking-[0.35em] text-[#4a90c8] font-semibold block mb-4">Our Purpose</span>
                 <h3 className="baskerville text-5xl font-bold text-[#0f2460] mb-4">
-                  Our <em className="italic font-normal text-[#B8860B]">Mission</em>
+                  Core <em className="italic font-normal text-[#B8860B]">Objectives</em>
                 </h3>
                 <div className="w-16 h-0.5 mx-auto bg-gradient-to-r from-[#1e3a8a] to-[#B8860B]" />
               </div>
@@ -334,10 +358,10 @@ const About: React.FC = () => {
               {/* 2x2 card grid */}
               <div className="grid md:grid-cols-2 gap-5">
                 {[
-                  { num: '01', title: 'Promotion of Learning',      desc: 'Utilizing diverse resources, including technology, for effective knowledge dissemination across all demographics.', icon: '📚' },
-                  { num: '02', title: 'Inclusive Higher Education', desc: 'Enhancing educational standards by offering opportunities to various segments of society regardless of geography.', icon: '🎓' },
-                  { num: '03', title: 'Cultural Preservation',      desc: 'Honoring the rich intellectual heritage of Madhya Pradesh while building bridges to modern academic excellence.', icon: '🏛️' },
-                  { num: '04', title: 'Research & Innovation',      desc: 'Fostering a culture of inquiry and discovery to prepare scholars for an ever-evolving knowledge economy.', icon: '🔬' },
+                  { num: '01', title: 'Promotion of Learning',               desc: 'Utilizing diverse resources, including cutting-edge technology, for effective knowledge dissemination and innovative pedagogical approaches across all demographics.', icon: <BookOpen className="w-5 h-5" /> },
+                  { num: '02', title: 'Inclusive Higher Education',          desc: 'Enhancing educational standards by offering opportunities to various segments of society, breaking barriers of geography and economic background.', icon: <Users className="w-5 h-5" /> },
+                  { num: '03', title: 'Integration of Distance Education',   desc: 'Incorporating open and distance learning into the state\'s educational framework, making quality higher education accessible to all corners of Madhya Pradesh.', icon: <Globe className="w-5 h-5" /> },
+                  { num: '04', title: 'Human Resource Development',          desc: 'Enabling National Education Policy 2020 implementation across courses, fostering skilled professionals and supporting India\'s ambitious GER target of 50% by 2035.', icon: <Award className="w-5 h-5" /> },
                 ].map(({ num, title, desc, icon }, i) => (
                   <div
                     key={num}
@@ -345,7 +369,7 @@ const About: React.FC = () => {
                     style={{ animationDelay: `${i * 0.08}s` }}
                   >
                     <div className="flex items-start gap-5">
-                      <div className="mission-icon-wrap w-12 h-12 rounded-xl bg-[#eef3ff] border border-[#dbe8ff] flex items-center justify-center text-[#1e3a8a] flex-shrink-0 text-lg">
+                      <div className="mission-icon-wrap w-12 h-12 rounded-xl bg-[#eef3ff] border border-[#dbe8ff] flex items-center justify-center text-[#1e3a8a] flex-shrink-0">
                         {icon}
                       </div>
                       <div className="flex-1">
@@ -357,6 +381,43 @@ const About: React.FC = () => {
                         <p className="text-gray-500 font-light text-sm leading-relaxed">{desc}</p>
                       </div>
                     </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ══════════════════════════════════════
+            KEY HIGHLIGHTS — compact strip
+        ══════════════════════════════════════ */}
+        <div className="bg-white py-16 px-6 border-t border-[#f0f4ff]">
+          <div className="max-w-7xl mx-auto">
+            <div
+              ref={s7.ref}
+              className={`rv ${s7.on ? 'on' : ''}`}
+            >
+              <div className="text-center mb-10">
+                <span className="text-[10px] uppercase tracking-[0.35em] text-[#4a90c8] font-semibold block mb-3">Why Choose Us</span>
+                <h3 className="baskerville text-3xl font-bold text-[#0f2460]">
+                  Key <em className="italic font-normal text-[#B8860B]">Highlights</em>
+                </h3>
+              </div>
+              <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+                {[
+                  { icon: <Target className="w-5 h-5" />, text: 'Premier UGC-recognized State Open University' },
+                  { icon: <MapPin  className="w-5 h-5" />, text: 'Focused on underserved and rural regions of MP' },
+                  { icon: <TrendingUp className="w-5 h-5" />, text: 'Transformative ICT-based education model' },
+                  { icon: <Award  className="w-5 h-5" />, text: 'Committed to NEP 2020 full implementation' },
+                ].map(({ icon, text }, i) => (
+                  <div
+                    key={i}
+                    className="highlight-card flex items-start gap-4 bg-[#f8faff] border border-[#dbe8ff] rounded-xl p-5"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-[#eef3ff] flex items-center justify-center text-[#1e3a8a] flex-shrink-0">
+                      {icon}
+                    </div>
+                    <p className="text-gray-600 text-sm font-light leading-relaxed">{text}</p>
                   </div>
                 ))}
               </div>
@@ -391,9 +452,9 @@ const About: React.FC = () => {
             </div>
             <h3 className="baskerville text-5xl md:text-6xl font-bold text-white leading-tight mb-4">
               Discover More About<br />
-              <em className="italic font-normal gold-shimmer">Government Model College</em>
+              <em className="italic font-normal gold-shimmer">MP Bhoj Open University</em>
             </h3>
-            <p className="text-white/50 text-sm mb-10 tracking-wider">30+ Years of Academic Excellence</p>
+            <p className="text-white/50 text-sm mb-10 tracking-wider">30+ Years of Academic Excellence · 4.3 Million+ Students Served</p>
 
             <Link to="/about">
               <button className="cta-pill inline-flex items-center gap-4 bg-[#B8860B] text-white px-10 py-4 rounded-full font-semibold text-sm uppercase shadow-xl shadow-[#B8860B]/30">
