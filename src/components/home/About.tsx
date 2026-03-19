@@ -174,20 +174,20 @@ const About: React.FC = () => {
             HERO BAND — full-bleed diagonal split
         ══════════════════════════════════════ */}
         <div className="relative min-h-[540px] flex items-center">
-          {/* left half white, right half navy */}
-          <div className="absolute inset-0 flex">
+          {/* left half white, right half navy — hidden on small screens */}
+          <div className="absolute inset-0 hidden md:flex">
             <div className="w-1/2 bg-white" />
             <div className="w-1/2 bg-[#0f2460]" />
           </div>
-          {/* diagonal cut */}
+          {/* diagonal cut — hidden on small screens */}
           <div
-            className="absolute inset-0 pointer-events-none"
+            className="absolute inset-0 pointer-events-none hidden md:block"
             style={{
               background: 'linear-gradient(108deg, #fff 48%, #0f2460 48.01%)',
             }}
           />
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6 w-full py-20 grid md:grid-cols-2 gap-10 items-center">
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 w-full py-12 md:py-20 flex flex-col md:grid md:grid-cols-2 gap-10 items-center">
             {/* Left: eyebrow + giant title */}
             <div
               ref={s1.ref}
@@ -223,7 +223,7 @@ const About: React.FC = () => {
             {/* Right: campus image card floated over the diagonal */}
             <div
               ref={s2.ref}
-              className={`rv ${s2.on ? 'on' : ''}`}
+              className={`rv ${s2.on ? 'on' : ''} md:ml-20`}
               style={{ animationDelay: '0.15s' }}
             >
               <div className="img-pan relative rounded-2xl overflow-hidden bg-white shadow-[0_32px_80px_rgba(0,0,0,0.35)]">

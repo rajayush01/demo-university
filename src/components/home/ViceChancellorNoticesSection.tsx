@@ -4,313 +4,82 @@ import vc from '../../assets/vc.jpg';
 
 export default function ViceChancellorNoticesSection() {
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap');
+    <div className="grid grid-cols-1 md:grid-cols-2 overflow-hidden rounded-b-2xl bg-white border border-t-0 border-gray-200 relative font-sans">
+      {/* Content Panel */}
+      <div className="relative flex flex-col justify-center gap-5 px-12 py-12 md:px-14 bg-white order-2 md:order-1">
+        {/* Right border accent */}
+        <div className="absolute top-0 bottom-0 right-0 w-px bg-gradient-to-b from-transparent via-[#DAA520]/40 to-transparent" />
 
-        .vc-card {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          overflow: hidden;
-          border-radius: 0 0 16px 16px;
-          background: #ffffff;
-          border: 0.5px solid #e5e7eb;
-          border-top: none;
-          position: relative;
-          font-family: 'DM Sans', sans-serif;
-        }
+        {/* Background number */}
+        <span className="hidden md:block absolute font-serif text-[13rem] font-black text-gray-100 leading-none select-none pointer-events-none left-6 -bottom-8 z-0">
+          02
+        </span>
 
-        @media (max-width: 768px) {
-          .vc-card {
-            grid-template-columns: 1fr;
-            border-radius: 16px;
-            border-top: 0.5px solid #e5e7eb;
-          }
-          .vc-panel-image {
-            min-height: 320px !important;
-            order: 1 !important;
-          }
-          .vc-panel-content {
-            order: 2 !important;
-            padding: 2rem 1.5rem !important;
-          }
-          .vc-bg-number {
-            display: none;
-          }
-        }
+        <div className="relative z-10 flex flex-col gap-5">
+          {/* Desk label */}
+          <span className="inline-flex items-center gap-2.5 text-[10px] tracking-[0.18em] uppercase text-[#B8860B] font-medium before:block before:w-6 before:h-px before:bg-[#B8860B]">
+            From the Vice-Chancellor's Desk
+          </span>
 
-        .vc-panel-content {
-          padding: 3rem 3.5rem 3rem 3rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          gap: 1.4rem;
-          background: #ffffff;
-          position: relative;
-          order: 1;
-        }
-
-        .vc-panel-content::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          right: 0;
-          width: 1px;
-          background: linear-gradient(180deg, transparent, rgba(218,165,32,0.28) 30%, rgba(218,165,32,0.4) 60%, transparent);
-        }
-
-        .vc-panel-image {
-          position: relative;
-          min-height: 480px;
-          overflow: hidden;
-          background: #0d1b35;
-          order: 2;
-        }
-
-        .vc-panel-image img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: top center;
-          display: block;
-        }
-
-        .vc-img-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(225deg, rgba(13,27,53,0.45) 0%, rgba(13,27,53,0.05) 60%);
-          z-index: 2;
-        }
-
-        .vc-img-pattern {
-          position: absolute;
-          inset: 0;
-          background-image: repeating-linear-gradient(
-            -45deg,
-            rgba(255,255,255,0.018) 0px,
-            rgba(255,255,255,0.018) 1px,
-            transparent 1px,
-            transparent 12px
-          );
-          z-index: 1;
-        }
-
-        .vc-img-accent {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          width: 4px;
-          background: linear-gradient(180deg, #B8860B 0%, #DAA520 50%, #B8860B 100%);
-          z-index: 3;
-        }
-
-        .vc-image-caption {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          padding: 1.5rem 1.75rem;
-          background: linear-gradient(0deg, rgba(8,15,30,0.92) 0%, transparent 100%);
-          z-index: 4;
-        }
-
-        .vc-image-caption h3 {
-          font-family: 'Playfair Display', serif;
-          font-size: 1.35rem;
-          font-weight: 700;
-          color: #ffffff;
-          margin: 0 0 4px;
-        }
-
-        .vc-image-caption p {
-          font-size: 0.72rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: #DAA520;
-          margin: 0;
-          font-family: 'DM Sans', sans-serif;
-        }
-
-        .vc-bg-number {
-          position: absolute;
-          font-family: 'Playfair Display', serif;
-          font-size: 13rem;
-          font-weight: 900;
-          color: #f3f4f6;
-          line-height: 1;
-          user-select: none;
-          pointer-events: none;
-          left: 1.5rem;
-          bottom: -2rem;
-          z-index: 0;
-        }
-
-        .vc-desk-label {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          font-size: 10px;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: #B8860B;
-          font-weight: 500;
-          font-family: 'DM Sans', sans-serif;
-        }
-
-        .vc-desk-label::before {
-          content: '';
-          display: block;
-          width: 24px;
-          height: 1px;
-          background: #B8860B;
-        }
-
-        .vc-person-name {
-          font-family: 'Playfair Display', serif;
-          font-size: 2.4rem;
-          font-weight: 700;
-          line-height: 1.1;
-          color: #111827;
-          margin: 0;
-        }
-
-        .vc-person-role {
-          font-size: 0.75rem;
-          font-weight: 500;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: #1e3a8a;
-          margin-top: 6px;
-          font-family: 'DM Sans', sans-serif;
-        }
-
-        .vc-divider {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          width: 120px;
-        }
-
-        .vc-divider .d-line {
-          flex: 1;
-          height: 0.5px;
-          background: rgba(218,165,32,0.5);
-        }
-
-        .vc-divider .d-diamond {
-          width: 6px;
-          height: 6px;
-          background: #DAA520;
-          transform: rotate(45deg);
-          opacity: 0.7;
-        }
-
-        .vc-quote-mark {
-          font-family: 'Playfair Display', serif;
-          font-size: 4.5rem;
-          line-height: 0.5;
-          color: rgba(218,165,32,0.3);
-          display: block;
-          margin-bottom: 4px;
-        }
-
-        .vc-message-text {
-          font-size: 0.96rem;
-          line-height: 1.85;
-          color: #6b7280;
-          font-family: 'DM Sans', sans-serif;
-          font-weight: 300;
-          position: relative;
-          padding-left: 1.25rem;
-          border-left: 2px solid rgba(218,165,32,0.28);
-          font-style: italic;
-          margin: 0;
-        }
-
-        .vc-cta-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          background: #0d1b35;
-          color: #DAA520;
-          font-size: 0.75rem;
-          font-weight: 500;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          padding: 12px 24px;
-          border-radius: 4px;
-          text-decoration: none;
-          transition: background 0.2s, color 0.2s;
-          width: fit-content;
-          font-family: 'DM Sans', sans-serif;
-        }
-
-        .vc-cta-btn:hover {
-          background: #1e3a8a;
-          color: #ffffff;
-        }
-
-        .vc-cta-btn svg {
-          transition: transform 0.2s;
-        }
-
-        .vc-cta-btn:hover svg {
-          transform: translateX(4px);
-        }
-      `}</style>
-
-      <div className="vc-card">
-        {/* Content Panel */}
-        <div className="vc-panel-content">
-          <div className="vc-bg-number">02</div>
-
-          <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-            <span className="vc-desk-label">From the Vice-Chancellor's Desk</span>
-
-            <div>
-              <h2 className="vc-person-name">
-                Dr. Milind D.<br />Dandekar
-              </h2>
-              <p className="vc-person-role">Vice-Chancellor</p>
-            </div>
-
-            <div className="vc-divider">
-              <div className="d-line" />
-              <div className="d-diamond" />
-              <div className="d-line" />
-            </div>
-
-            <div>
-              <span className="vc-quote-mark">"</span>
-              <p className="vc-message-text">
-                कार्यपालिक के रूप में उच्च शिक्षा के प्रति विश्वविद्यालय के दायित्वों
-                एवं इन दायित्वों के निर्वाहन के लिए अपनी प्रतिबद्धता व्यक्त करता हूँ।
-                रोज़गार की व्यस्तता अथवा किन्हीं अपरिहार्य कारणों से वंचित विद्यार्थियों
-                को उच्च शिक्षा सुलभ कराना हमारा संकल्प है...
-              </p>
-            </div>
-
-            <Link to="/vice-chancellor-message" className="vc-cta-btn">
-              <span>Read Full Message</span>
-              <ChevronRight size={14} />
-            </Link>
+          {/* Name & role */}
+          <div>
+            <h2 className="font-serif text-[2.4rem] font-bold leading-[1.1] text-gray-900">
+              Dr. Milind D.<br />Dandekar
+            </h2>
+            <p className="text-[0.75rem] font-medium tracking-[0.14em] uppercase text-[#1e3a8a] mt-1.5">
+              Vice-Chancellor
+            </p>
           </div>
-        </div>
 
-        {/* Image Panel */}
-        <div className="vc-panel-image">
-          <div className="vc-img-pattern" />
-          <img src={vc} alt="Dr. Milind Dattatray Dandekar" />
-          <div className="vc-img-overlay" />
-          <div className="vc-img-accent" />
-          <div className="vc-image-caption">
-            <h3>Dr. Milind D. Dandekar</h3>
-            <p>Vice-Chancellor, MP Bhoj Open University</p>
+          {/* Divider */}
+          <div className="flex items-center gap-2.5 w-[120px]">
+            <div className="flex-1 h-px bg-[#DAA520]/50" />
+            <div className="w-1.5 h-1.5 bg-[#DAA520] rotate-45 opacity-70" />
+            <div className="flex-1 h-px bg-[#DAA520]/50" />
           </div>
+
+          {/* Quote */}
+          <div>
+            <span className="font-serif text-[4.5rem] leading-[0.5] text-[#DAA520]/30 block mb-1">"</span>
+            <p className="text-[0.96rem] leading-[1.85] text-gray-500 font-light italic pl-5 border-l-2 border-[#DAA520]/28 m-0">
+              कार्यपालिक के रूप में उच्च शिक्षा के प्रति विश्वविद्यालय के दायित्वों
+              एवं इन दायित्वों के निर्वाहन के लिए अपनी प्रतिबद्धता व्यक्त करता हूँ।
+              रोज़गार की व्यस्तता अथवा किन्हीं अपरिहार्य कारणों से वंचित विद्यार्थियों
+              को उच्च शिक्षा सुलभ कराना हमारा संकल्प है...
+            </p>
+          </div>
+
+          {/* CTA */}
+          <Link
+            to="/vice-chancellor-message"
+            className="inline-flex items-center gap-2.5 bg-[#0d1b35] text-[#DAA520] text-[0.75rem] font-medium tracking-[0.1em] uppercase px-6 py-3 rounded transition-colors duration-200 w-fit hover:bg-[#1e3a8a] hover:text-white [&>svg]:transition-transform [&:hover>svg]:translate-x-1"
+          >
+            <span>Read Full Message</span>
+            <ChevronRight size={14} />
+          </Link>
         </div>
       </div>
-    </>
+
+      {/* Image Panel */}
+      <div className="relative max-h-[500px] min-h-[320px] md:min-h-[300px] overflow-hidden bg-[#0d1b35] order-1 md:order-2">
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(-45deg,rgba(255,255,255,0.018)_0px,rgba(255,255,255,0.018)_1px,transparent_1px,transparent_12px)] z-[1]" />
+        <img
+          src={vc}
+          alt="Dr. Milind Dattatray Dandekar"
+          className="w-full h-full object-contain object-top block"
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-bl from-[#0d1b35]/45 to-[#0d1b35]/5 z-[2]" />
+        {/* Left accent bar */}
+        <div className="absolute top-0 bottom-0 left-0 w-1 bg-gradient-to-b from-[#B8860B] via-[#DAA520] to-[#B8860B] z-[3]" />
+        {/* Caption */}
+        <div className="absolute bottom-0 left-0 right-0 px-7 py-6 bg-gradient-to-t from-[#080f1e]/92 to-transparent z-[4]">
+          <h3 className="font-serif text-[1.35rem] font-bold text-white mb-1">Dr. Milind D. Dandekar</h3>
+          <p className="text-[0.72rem] tracking-widest uppercase text-[#DAA520]">
+            Vice-Chancellor, MP Bhoj Open University
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }
