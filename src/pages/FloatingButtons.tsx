@@ -66,50 +66,59 @@ const FloatingButtons = () => {
 
   return (
     <>
-      {/* Mobile - Bottom Floating Action Bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden">
-        <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 backdrop-blur-lg border-t border-white/10 shadow-2xl">
-          <div className="grid grid-cols-4 gap-1 px-2 py-3">
-            <button
-              onClick={() => setIsPortalOpen(true)}
-              className="flex flex-col items-center space-y-1 px-2 py-2 rounded-xl hover:bg-white/10 active:bg-white/20 transition-all duration-300 group"
-            >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-purple-500 to-purple-700 rounded-full flex items-center justify-center group-hover:scale-110 group-active:scale-95 transition-transform shadow-lg">
-                <UserCircle className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </div>
-              <span className="text-[10px] sm:text-xs text-white font-medium text-center leading-tight">Portal</span>
-            </button>
+      {/* Mobile - Right Side Floating Action Panel */}
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 lg:hidden flex flex-col items-end">
+        <div
+          className="flex flex-col items-center gap-0 rounded-l-2xl overflow-hidden shadow-2xl border-l border-y border-[#B8860B]/40"
+          style={{ background: "linear-gradient(180deg, #0f2460 0%, #1e3a8a 50%, #0f2460 100%)" }}
+        >
+          {/* Portal */}
+          <button
+            onClick={() => setIsPortalOpen(true)}
+            className="group flex flex-col items-center gap-1 px-3 py-4 hover:bg-white/10 active:bg-white/20 transition-all duration-200 border-b border-[#B8860B]/20 w-full"
+          >
+            <div className="w-9 h-9 rounded-full flex items-center justify-center border border-[#B8860B]/50 group-hover:scale-110 transition-transform"
+              style={{ background: "linear-gradient(135deg, #f0c040, #B8860B)" }}>
+              <UserCircle className="w-4 h-4 text-blue-900" />
+            </div>
+            <span className="text-[9px] text-yellow-300 font-semibold tracking-wide uppercase">Portal</span>
+          </button>
 
-            <button
-              onClick={() => setIsEnquiryOpen(true)}
-              className="flex flex-col items-center space-y-1 px-2 py-2 rounded-xl hover:bg-white/10 active:bg-white/20 transition-all duration-300 group"
-            >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center group-hover:scale-110 group-active:scale-95 transition-transform shadow-lg">
-                <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </div>
-              <span className="text-[10px] sm:text-xs text-white font-medium text-center leading-tight">Enquire</span>
-            </button>
+          {/* Enquire */}
+          <button
+            onClick={() => setIsEnquiryOpen(true)}
+            className="group flex flex-col items-center gap-1 px-3 py-4 hover:bg-white/10 active:bg-white/20 transition-all duration-200 border-b border-[#B8860B]/20 w-full"
+          >
+            <div className="w-9 h-9 rounded-full flex items-center justify-center border border-[#B8860B]/50 group-hover:scale-110 transition-transform"
+              style={{ background: "linear-gradient(135deg, #1e40af, #1e3a8a)" }}>
+              <MessageSquare className="w-4 h-4 text-yellow-300" />
+            </div>
+            <span className="text-[9px] text-yellow-300 font-semibold tracking-wide uppercase">Enquire</span>
+          </button>
 
-            <button
-              onClick={() => window.location.href = "tel:+911234567890"}
-              className="flex flex-col items-center space-y-1 px-2 py-2 rounded-xl hover:bg-white/10 active:bg-white/20 transition-all duration-300 group"
-            >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center group-hover:scale-110 group-active:scale-95 transition-transform shadow-lg">
-                <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </div>
-              <span className="text-[10px] sm:text-xs text-white font-medium text-center leading-tight">Call</span>
-            </button>
+          {/* Call */}
+          <button
+            onClick={() => window.location.href = "tel:+911234567890"}
+            className="group flex flex-col items-center gap-1 px-3 py-4 hover:bg-white/10 active:bg-white/20 transition-all duration-200 border-b border-[#B8860B]/20 w-full"
+          >
+            <div className="w-9 h-9 rounded-full flex items-center justify-center border border-[#B8860B]/50 group-hover:scale-110 transition-transform"
+              style={{ background: "linear-gradient(135deg, #f0c040, #B8860B)" }}>
+              <Phone className="w-4 h-4 text-blue-900" />
+            </div>
+            <span className="text-[9px] text-yellow-300 font-semibold tracking-wide uppercase">Call</span>
+          </button>
 
-            <button
-              onClick={() => window.location.href = "mailto:info@mpbou.ac.in"}
-              className="flex flex-col items-center space-y-1 px-2 py-2 rounded-xl hover:bg-white/10 active:bg-white/20 transition-all duration-300 group"
-            >
-              <div className="w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-orange-500 to-orange-700 rounded-full flex items-center justify-center group-hover:scale-110 group-active:scale-95 transition-transform shadow-lg">
-                <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-              </div>
-              <span className="text-[10px] sm:text-xs text-white font-medium text-center leading-tight">Email</span>
-            </button>
-          </div>
+          {/* Email */}
+          <button
+            onClick={() => window.location.href = "mailto:info@mpbou.ac.in"}
+            className="group flex flex-col items-center gap-1 px-3 py-4 hover:bg-white/10 active:bg-white/20 transition-all duration-200 w-full"
+          >
+            <div className="w-9 h-9 rounded-full flex items-center justify-center border border-[#B8860B]/50 group-hover:scale-110 transition-transform"
+              style={{ background: "linear-gradient(135deg, #1e40af, #1e3a8a)" }}>
+              <Mail className="w-4 h-4 text-yellow-300" />
+            </div>
+            <span className="text-[9px] text-yellow-300 font-semibold tracking-wide uppercase">Email</span>
+          </button>
         </div>
       </div>
 

@@ -15,19 +15,10 @@ const CARDS = [
     sub: ["About Drone School", "Courses Offered", "Certification", "Apply Now"] },
 ];
 
-const WEBINARS = [
-  { title: "Viksit Bharat@2047: Voice of Youth", date: "16 December, 2023",
-    img: "https://images.unsplash.com/photo-1560472355-536de3962603?w=160&q=70" },
-  { title: "राष्ट्रीय शिक्षा नीति-2020 और युवा शिक्षा पर भौतिक दृष्टि विशेषज्ञायुक्त के विचार", date: "22 July, 2023",
-    img: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=160&q=70" },
-  { title: "मध्यप्रदेश भोज (मुक्त) विश्वविद्यालय एवं पर्यावरण मंत्रालय के संयुक्त तत्वाधान में", date: "22 November, 2022",
-    img: "https://images.unsplash.com/photo-1588072432836-e10032774350?w=160&q=70" },
-];
-
 function LeafDecor() {
   return (
     <svg className="absolute right-[-10px] bottom-[-10px] w-[90px] h-[90px] opacity-20" viewBox="0 0 100 100">
-      <path d="M85 80 Q25 60 15 15 Q70 35 85 80Z" fill="#065f46" />
+      <path d="M85 80 Q25 60 15 15 Q70 35 85 80Z" fill="#B8860B" />
     </svg>
   );
 }
@@ -49,11 +40,11 @@ function NavCard({ card, delay }: { card: typeof CARDS[0]; delay: number }) {
       <div
         className="absolute inset-0 flex flex-col justify-between p-4 pb-9 transition-opacity duration-300"
         style={{
-          background: "linear-gradient(135deg, #5EEAD4 0%, #67E8F9 50%, #A7F3D0 100%)",
+          background: "linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%)",
           opacity: hovered ? 0 : 1,
         }}
       >
-        <span className="text-[14px] font-semibold text-teal-900 leading-snug max-w-[85%] relative z-10">
+        <span className="text-[14px] font-semibold text-yellow-300 leading-snug max-w-[85%] relative z-10">
           {card.label}
         </span>
         <LeafDecor />
@@ -63,7 +54,7 @@ function NavCard({ card, delay }: { card: typeof CARDS[0]; delay: number }) {
       <div
         className="absolute inset-0 flex flex-col justify-center px-4 pb-9 pt-4 gap-[2px] transition-opacity duration-300"
         style={{
-          background: "linear-gradient(145deg, #DC2626 0%, #7C1D1D 50%, #1e1b4b 100%)",
+          background: "linear-gradient(145deg, #0f2460 0%, #1e3a8a 60%, #1e40af 100%)",
           opacity: hovered ? 1 : 0,
         }}
       >
@@ -75,13 +66,13 @@ function NavCard({ card, delay }: { card: typeof CARDS[0]; delay: number }) {
         ))}
       </div>
 
-      {/* Red icon bubble */}
+      {/* Gold icon bubble */}
       <div
         className="absolute bottom-0 left-1/2 z-10 w-10 h-10 rounded-full flex items-center justify-center text-base transition-transform duration-250"
         style={{
           transform: hovered ? "translate(-50%, 50%) scale(1.12)" : "translate(-50%, 50%)",
-          background: "linear-gradient(135deg, #EF4444, #B91C1C)",
-          boxShadow: "0 4px 14px rgba(185,28,28,0.45)",
+          background: "linear-gradient(135deg, #f0c040, #B8860B)",
+          boxShadow: "0 4px 14px rgba(184,134,11,0.5)",
         }}
       >
         {card.icon}
@@ -93,7 +84,6 @@ function NavCard({ card, delay }: { card: typeof CARDS[0]; delay: number }) {
 export default function MITSHeroSection() {
   const heroBgRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLDivElement>(null);
-  const [activeTab, setActiveTab] = useState("webinars");
 
   // Parallax via scroll listener
   useEffect(() => {
@@ -140,16 +130,15 @@ export default function MITSHeroSection() {
           />
           {/* Dark overlay */}
           <div
-            className="absolute inset-0 z-[1]"
-            style={{ background: "linear-gradient(135deg,rgba(0,40,30,0.82) 0%,rgba(0,20,40,0.75) 100%)" }}
+            className="absolute inset-0 z-[1] bg-black bg-opacity-50"
           />
 
           {/* Floating particles */}
           {[
-            { s: 8,  color: "#5EEAD4", top: "15%", left: "12%", dur: 5, del: 0 },
-            { s: 5,  color: "#FCD34D", top: "65%", left: "22%", dur: 7, del: 1 },
-            { s: 10, color: "#67E8F9", top: "30%", right: "15%", dur: 6, del: 2 },
-            { s: 6,  color: "#A7F3D0", top: "75%", right: "25%", dur: 8, del: 0.5 },
+            { s: 8,  color: "#f0c040", top: "15%", left: "12%", dur: 5, del: 0 },
+            { s: 5,  color: "#B8860B", top: "65%", left: "22%", dur: 7, del: 1 },
+            { s: 10, color: "#fde68a", top: "30%", right: "15%", dur: 6, del: 2 },
+            { s: 6,  color: "#f0c040", top: "75%", right: "25%", dur: 8, del: 0.5 },
           ].map((p, i) => (
             <div
               key={i}
@@ -207,8 +196,8 @@ export default function MITSHeroSection() {
                   </svg>
                 </button>
               </div>
-              <div className="flex justify-center items-center py-3" style={{ background: "rgba(10,10,10,0.88)" }}>
-                <button className="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold px-6 py-2 rounded-lg text-[13px] transition-all hover:-translate-y-px">
+              <div className="flex justify-center items-center py-3" style={{ background: "rgba(15,36,96,0.95)" }}>
+                <button className="bg-yellow-400 hover:bg-yellow-300 text-blue-900 font-semibold px-6 py-2 rounded-lg text-[13px] transition-all hover:-translate-y-px">
                   Take A Campus Tour
                 </button>
               </div>
