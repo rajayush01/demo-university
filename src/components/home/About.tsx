@@ -179,6 +179,8 @@ const About: React.FC = () => {
             <div className="w-1/2 bg-white" />
             <div className="w-1/2 bg-[#0f2460]" />
           </div>
+          {/* mobile solid bg */}
+          <div className="absolute inset-0 md:hidden" />
           {/* diagonal cut — hidden on small screens */}
           <div
             className="absolute inset-0 pointer-events-none hidden md:block"
@@ -187,7 +189,7 @@ const About: React.FC = () => {
             }}
           />
 
-          <div className="relative z-10 max-w-[1400px] mx-auto px-6 w-full py-12 md:py-20 flex flex-col md:grid md:grid-cols-2 gap-10 items-center">
+          <div className="relative z-10 max-w-[1400px] mx-auto px-6 w-full py-10 md:py-20 flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-10 items-center">
             {/* Left: eyebrow + giant title */}
             <div
               ref={s1.ref}
@@ -199,23 +201,23 @@ const About: React.FC = () => {
                   Est. October 1992
                 </span>
               </div>
-              <h2 className="baskerville text-[clamp(2.8rem,3vw,5rem)] font-bold text-[#0f2460] leading-[1.04] mb-6">
-                <span className="text-[clamp(1.4rem,3vw,2.2rem)] font-normal">Welcome to</span><br />
+              <h2 className="baskerville text-[clamp(2.2rem,6vw,5rem)] md:text-[clamp(2.8rem,3vw,5rem)] font-bold text-white md:text-[#0f2460] leading-[1.04] mb-6">
+                <span className="text-[clamp(1.1rem,3vw,2.2rem)] md:text-[clamp(1.4rem,3vw,2.2rem)] font-normal">Welcome to</span><br />
                 <span className="gold-shimmer">Madhya Pradesh</span><br />
                 <span className="italic font-normal text-[#0f2460]">Bhoj (Open) University</span>
               </h2>
-              <p className="text-gray-500 font-light text-base leading-relaxed max-w-md mb-7">
+              <p className="text-black/70 md:text-gray-500 font-light text-sm md:text-base leading-relaxed max-w-md mb-7">
                 Inaugurated by President Dr. Shankar Dayal Sharma on October 19, 1992 — a premier UGC-recognized State Open University committed to transforming lives through accessible education.
               </p>
               {/* Recognition badges */}
               <div className="flex flex-wrap gap-3">
                 <div className="bg-[#f4f8ff] border border-[#dbe8ff] px-4 py-2.5 rounded-lg">
-                  <p className="text-[9px] text-gray-400 uppercase tracking-widest mb-0.5">Recognized by</p>
+                  <p className="text-[9px] text-black/50 md:text-gray-400 uppercase tracking-widest mb-0.5">Recognized by</p>
                   <p className="font-bold text-[#1e3a8a] text-xs">UGC · DEB · AICTE</p>
                 </div>
-                <div className="bg-[#fdf8ee] border border-[#f0c040]/40 px-4 py-2.5 rounded-lg">
-                  <p className="text-[9px] text-gray-400 uppercase tracking-widest mb-0.5">Accredited by</p>
-                  <p className="font-bold text-[#B8860B] text-xs">NCTE · RCI · AIU</p>
+                <div className="bg-[#fdf8ee] border border-[#B8860B]/40 px-4 py-2.5 rounded-lg">
+                  <p className="text-[9px] text-black/50 md:text-gray-400 uppercase tracking-widest mb-0.5">Accredited by</p>
+                  <p className="font-bold text-[#f0c040] md:text-[#B8860B] text-xs">NCTE · RCI · AIU</p>
                 </div>
               </div>
             </div>
@@ -227,7 +229,7 @@ const About: React.FC = () => {
               style={{ animationDelay: '0.15s' }}
             >
               <div className="img-pan relative rounded-2xl overflow-hidden bg-white shadow-[0_32px_80px_rgba(0,0,0,0.35)]">
-                <img src={img2} alt="Campus" className="w-full h-[340px] object-contain" />
+                <img src={img2} alt="Campus" className="w-full h-[200px] sm:h-[260px] md:h-[340px] object-contain" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0f2460]/60 to-transparent" />
                 {/* floating badge */}
                 <div className="absolute bottom-5 right-5 bg-white/95 backdrop-blur rounded-xl px-5 py-3 shadow-lg">
